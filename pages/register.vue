@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    h2 Home
+    h2 Register
 </template>
 
 <script>

@@ -1,7 +1,7 @@
-# dependencies
+# Dependencies
 node_modules
 
-# logs
+# Logs
 npm-debug.log
 yarn-error.log
 
@@ -11,4 +11,5 @@ yarn-error.log
 # Nuxt generate
 dist
 
+# OSX
 .DSStore

@@ -1,3 +1,5 @@
+const externals = require('webpack-node-externals')
+
 exports.head = {
   title: 'newalchemy-homework',
   meta: [
@@ -10,12 +12,12 @@ exports.head = {
   ]
 }
 
-// exports.modules = [
-//   '~/plugins/storage-server'
-// ]
+exports.plugins = [
+  '~/plugins/vuetify'
+]
 
 exports.build = {
-  extend(config, { isDev, isClient }) {
+  extend(config, { isDev, isClient, isServer }) {
     if (isDev && isClient) {
       config.module.rules.push({
         enforce: 'pre',
@@ -24,9 +26,12 @@ exports.build = {
         exclude: /(node_modules)/
       })
     }
+    if (isServer) {
+      config.externals = [
+        externals({
+          whitelist: [/^vuetify/]
+        })
+      ]
+    }
   }
 }
-
-exports.serverMiddleware = [
-
-]
