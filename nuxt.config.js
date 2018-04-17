@@ -1,7 +1,7 @@
 const externals = require('webpack-node-externals')
 
 exports.head = {
-  title: 'newalchemy-homework',
+  title: 'Simple Storage Server by New Alchemy',
   meta: [
     { charset: 'utf-8' },
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },

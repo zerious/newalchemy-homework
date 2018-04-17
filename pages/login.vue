@@ -1,13 +1,13 @@
 <template lang="pug">
 v-container
-  h2 Register
+  h2 Sign In
   v-card
     v-card-text
-      v-form(@submit="register")
+      v-form(@submit="signIn")
         p.error-message(v-if="form.error") {{form.error}}
         v-text-field(label="Email" v-model="form.email" @input="change")
         v-text-field(label="Password" v-model="form.password" type="password" @input="change")
-        v-btn(type="submit" color="primary") Register
+        v-btn(type="submit" color="primary") Sign In
 </template>
 
 <script>
@@ -28,11 +28,11 @@ export default {
     change (event) {
       Vue.delete(this.form, 'error')
     },
-    register (event) {
+    signIn (event) {
       event.preventDefault()
       const { email, password } = this.form
       const data = { email, password }
-      axios.post('/api/v1/register', data).then(({ data }) => {
+      axios.post('/api/v1/login', data).then(({ data }) => {
         const error = data.error
         if (error) {
           Vue.set(this.form, 'error', error)
